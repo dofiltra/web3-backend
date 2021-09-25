@@ -5,15 +5,13 @@ type TWeb3Settings = {
 }
 
 class Web3Manager {
+  public web3: Web3
   protected settings: TWeb3Settings
-  protected web3: Web3
 
   constructor(s: TWeb3Settings) {
     this.settings = { ...s }
     this.web3 = new Web3(s.provider)
   }
-
-  
 }
 
 export { Web3Manager }
