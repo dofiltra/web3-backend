@@ -4,12 +4,14 @@ import { fileURLToPath } from 'url'
 import { Web3Manager } from '.'
 import Web3 from 'web3'
 
+type TAppSettings = {}
+
 class App {
   static version = 1
   static env = process.env
   static rootPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 
-  constructor({}: any) {
+  constructor(s: TAppSettings) {
     dotenv.config({ path: path.join(App.rootPath, `.env`) })
   }
 
