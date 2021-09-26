@@ -19,9 +19,14 @@ class App {
     const mgr = new Web3Manager({
       provider: App.env.WEB3_PROVIDER!
     })
-
-    const balance = await mgr.web3.eth.getBalance(`0xecf70cb179444c780bad0be10187ac79d8f445cc`)
+    const web3 = mgr.web3
+    const balance = await web3.eth.getBalance(`0xecf70cb179444c780bad0be10187ac79d8f445cc`)
     console.log(Web3.utils.fromWei(balance, 'ether') + ' ETH')
+
+    const account = web3.eth.accounts.create()
+    console.log(account)
+    console.log(web3.eth.accounts.privateKeyToAccount(account.privateKey))
+    console.log(web3.eth.getAccounts())
   }
 }
 
