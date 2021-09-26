@@ -20,7 +20,7 @@ class App {
       provider: App.env.WEB3_PROVIDER!
     })
     const web3 = mgr.web3
-    const balance = await web3.eth.getBalance(`0xecf70cb179444c780bad0be10187ac79d8f445cc`)
+    const balance = await web3.eth.getBalance(App.env.ETH_ADDRESS!)
     console.log(Web3.utils.fromWei(balance, 'ether') + ' ETH')
 
     const account = web3.eth.accounts.create()
